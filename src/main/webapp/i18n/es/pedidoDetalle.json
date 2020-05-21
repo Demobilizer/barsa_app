@@ -1,0 +1,26 @@
+{
+  "barsaAppApp": {
+    "pedidoDetalle": {
+      "home": {
+        "title": "Pedido Detalles",
+        "createLabel": "Crear nuevo Pedido Detalle",
+        "createOrEditLabel": "Crear o editar Pedido Detalle",
+        "notFound": "Ningún Pedido Detalles encontrado"
+      },
+      "created": "Un nuevo Pedido Detalle ha sido creado con el identificador {{ param }}",
+      "updated": "Un Pedido Detalle ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Pedido Detalle ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Pedido Detalle {{ id }}?"
+      },
+      "detail": {
+        "title": "Pedido Detalle"
+      },
+      "posicion": "Posicion",
+      "cantidad": "Cantidad",
+      "total": "Total",
+      "pedidoNumero": "Pedido Numero",
+      "articuloCodigo": "Articulo Codigo"
+    }
+  }
+}

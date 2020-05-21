@@ -1,0 +1,33 @@
+{
+  "barsaAppApp": {
+    "pedidoCabecera": {
+      "home": {
+        "title": "Pedido Cabeceras",
+        "createLabel": "Create a new Pedido Cabecera",
+        "createOrEditLabel": "Create or edit a Pedido Cabecera",
+        "notFound": "No Pedido Cabeceras found"
+      },
+      "created": "A new Pedido Cabecera is created with identifier {{ param }}",
+      "updated": "A Pedido Cabecera is updated with identifier {{ param }}",
+      "deleted": "A Pedido Cabecera is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Pedido Cabecera {{ id }}?"
+      },
+      "detail": {
+        "title": "Pedido Cabecera"
+      },
+      "fechaCreacion": "Fecha Creacion",
+      "fechaEntrega": "Fecha Entrega",
+      "pedidoNumero": "Pedido Numero",
+      "descripcion": "Descripcion",
+      "facturado": "Facturado",
+      "entregado": "Entregado",
+      "totalBruto": "Total Bruto",
+      "totalIva": "Total Iva",
+      "totalImpConsumo": "Total Imp Consumo",
+      "total": "Total",
+      "pedidoDetalle": "Pedido Detalle",
+      "clienteNo": "Cliente No"
+    }
+  }
+}

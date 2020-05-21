@@ -1,0 +1,24 @@
+{
+  "barsaAppApp": {
+    "listaPrecios": {
+      "home": {
+        "title": "Lista Precios",
+        "createLabel": "Create a new Lista Precios",
+        "createOrEditLabel": "Create or edit a Lista Precios",
+        "notFound": "No Lista Precios found"
+      },
+      "created": "A new Lista Precios is created with identifier {{ param }}",
+      "updated": "A Lista Precios is updated with identifier {{ param }}",
+      "deleted": "A Lista Precios is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Lista Precios {{ id }}?"
+      },
+      "detail": {
+        "title": "Lista Precios"
+      },
+      "descripcion": "Descripcion",
+      "porcentaje": "Porcentaje",
+      "valor": "Valor"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+    "name": "PedidoCabecera",
+    "fields": [
+        {
+            "fieldName": "fechaCreacion",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "fechaEntrega",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "pedidoNumero",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "facturado",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "entregado",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "totalBruto",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "totalIva",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "totalImpConsumo",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "total",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pedidoDetalle",
+            "otherEntityRelationshipName": "pedidoNumero",
+            "relationshipName": "pedidoDetalle"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "cliente",
+            "otherEntityRelationshipName": "pedidoCabecera",
+            "relationshipName": "clienteNo",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200520191500",
+    "entityTableName": "pedido_cabecera",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

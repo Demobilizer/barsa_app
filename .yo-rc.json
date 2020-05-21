@@ -1,0 +1,42 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.barsa",
+      "nativeLanguage": "es"
+    },
+    "jhipsterVersion": "6.8.0",
+    "applicationType": "monolith",
+    "baseName": "barsa_app",
+    "packageName": "com.barsa",
+    "packageFolder": "com/barsa",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NTlmNWM0ZGI4ZWZhZmNhZDJhZGU5NmVlYTIzMDgxYjVjN2ExNjQyY2RlZDViNWNjZTI1NTVmMTUzNjdlMDdlZDNhOTNkZmI2OTMzNjIxOTAxMGEwOTc2YjAzMDQ1MmI1ODhmMGJiMDgxMjk0OGUzZTAyODViZTJmOGI4MDBmN2I=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "react",
+    "clientTheme": "superhero",
+    "clientThemeVariant": "primary",
+    "creationTimestamp": 1589998386269,
+    "testFrameworks": ["protractor"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "es",
+    "languages": ["es", "en"],
+    "blueprints": []
+  }
+}

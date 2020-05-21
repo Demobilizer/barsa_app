@@ -1,0 +1,44 @@
+{
+    "name": "PedidoDetalle",
+    "fields": [
+        {
+            "fieldName": "posicion",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "cantidad",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "total",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "pedidoCabecera",
+            "otherEntityRelationshipName": "pedidoDetalle",
+            "relationshipName": "pedidoNumero",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "producto",
+            "otherEntityRelationshipName": "pedidoDetalle",
+            "relationshipName": "articuloCodigo",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200520191600",
+    "entityTableName": "pedido_detalle",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

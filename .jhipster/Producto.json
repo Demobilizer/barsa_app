@@ -1,0 +1,57 @@
+{
+    "name": "Producto",
+    "fields": [
+        {
+            "fieldName": "codigo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "imagen",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "unidad",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cantidad",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "precio",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "iva",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "icovalor",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "pedidoDetalle",
+            "otherEntityRelationshipName": "articuloCodigo",
+            "relationshipName": "pedidoDetalle"
+        }
+    ],
+    "changelogDate": "20200520191300",
+    "entityTableName": "producto",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
