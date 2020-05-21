@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Spring Data  repository for the PedidoCabecera entity.
@@ -19,4 +20,6 @@ public interface PedidoCabeceraRepository extends JpaRepository<PedidoCabecera, 
 
     @Query("SELECT p FROM PedidoCabecera p WHERE p.clienteNo = ?1 AND (p.fechaCreacion >= ?2 and p.fechaCreacion <= ?3)")
     List<PedidoCabecera> findByClienteNoAndFechaCreacion(Cliente cliente, Instant fechaCreacionStart, Instant fechaCreacionEnd);
+
+    Optional<PedidoCabecera> findByPedidoNumero(Integer pedidoNo);
 }

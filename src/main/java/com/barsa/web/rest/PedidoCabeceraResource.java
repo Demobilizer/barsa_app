@@ -98,27 +98,25 @@ public class PedidoCabeceraResource {
      * @param id the id of the pedidoCabecera to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the pedidoCabecera, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/pedido-cabecera/{id}")
+    @GetMapping("/pedido-cabeceras/{id}")
     public ResponseEntity<PedidoCabecera> getPedidoCabecera(@PathVariable Long id) {
         log.debug("REST request to get PedidoCabecera : {}", id);
         Optional<PedidoCabecera> pedidoCabecera = pedidoCabeceraService.findOne(id);
         return ResponseUtil.wrapOrNotFound(pedidoCabecera);
     }
 
-    @GetMapping("/pedido-cabeceras/{noIdentification}")
+    @GetMapping("/pedido-cabeceras-by-noId/{noIdentification}")
     public List<PedidoCabecera> getPedidoCabeceraByClient(@PathVariable Integer noIdentification) {
         log.debug("REST request to get all PedidoCabeceras by Client by noIdentification");
         return pedidoCabeceraService.findAllByClient(noIdentification);
     }
 
-    @GetMapping("/pedido-cabeceras/{noIdentification}/{date}")
+    @GetMapping("/pedido-cabeceras-by-noId-by-date/{noIdentification}/{date}")
     public List<PedidoCabecera> getPedidoCabeceraByClienteByDate(
         @RequestParam("noIdentification") Integer noIdentification, @RequestParam("date") String date) {
         log.debug("REST request to get all PedidoCabeceras by Client by noIdentification by fechaCreacion date");
 
           LocalDate localDate = LocalDate.parse(date);
-//        LocalDateTime localDateTime = localDate.atStartOfDay();
-//        Instant fechaCreacion = localDateTime.toInstant(ZoneOffset.UTC);
 
         return pedidoCabeceraService.findAllByClientAndFechaCreacion(noIdentification, localDate);
     }

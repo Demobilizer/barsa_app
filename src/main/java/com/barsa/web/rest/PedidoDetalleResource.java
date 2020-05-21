@@ -94,7 +94,7 @@ public class PedidoDetalleResource {
      * @param id the id of the pedidoDetalle to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the pedidoDetalle, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/pedido-detalle/{id}")
+    @GetMapping("/pedido-detalles/{id}")
     public ResponseEntity<PedidoDetalle> getPedidoDetalleById(@PathVariable Long id) {
         log.debug("REST request to get PedidoDetalle : {}", id);
         Optional<PedidoDetalle> pedidoDetalle = pedidoDetalleService.findOne(id);
@@ -102,7 +102,7 @@ public class PedidoDetalleResource {
     }
 
 
-    @GetMapping("/pedido-detalles/{pedidoNumero}")
+    @GetMapping("/pedido-detalles-by-pedidoNumero/{pedidoNumero}")
     public List<PedidoDetalle> getPedidoDetailsByPedidoNo(@PathVariable Integer pedidoNumero) {
         log.debug("REST request to get PedidoDetalle by pedidoNo : {}", pedidoNumero);
         return pedidoDetalleService.findAllByPedidoNumero(pedidoNumero);

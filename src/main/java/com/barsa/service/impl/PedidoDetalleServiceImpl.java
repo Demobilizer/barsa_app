@@ -82,7 +82,7 @@ public class PedidoDetalleServiceImpl implements PedidoDetalleService {
 
     @Override
     public List<PedidoDetalle> findAllByPedidoNumero(Integer pedidoNo) {
-        PedidoCabecera pedidoCabecera = pedidoCabeceraRepository.findById(pedidoNo.longValue()).orElse(null);
+        PedidoCabecera pedidoCabecera = pedidoCabeceraRepository.findByPedidoNumero(pedidoNo).orElse(null);
         if (pedidoCabecera == null || pedidoCabecera.equals(null)) {
             log.debug("pedidoCabecera is null for given pedidoNo : {}", pedidoNo);
             throw new NullPointerException();
