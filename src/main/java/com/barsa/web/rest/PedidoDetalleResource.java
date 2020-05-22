@@ -8,6 +8,7 @@ import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * REST controller for managing {@link com.barsa.domain.PedidoDetalle}.
+ * REST controller for managing {@link PedidoDetalle}.
  */
 @RestController
 @RequestMapping("/api")
@@ -33,7 +34,7 @@ public class PedidoDetalleResource {
 
     private final PedidoDetalleService pedidoDetalleService;
 
-    public PedidoDetalleResource(PedidoDetalleService pedidoDetalleService) {
+    public PedidoDetalleResource(@Qualifier("pedidoDetalleServiceImpl") PedidoDetalleService pedidoDetalleService) {
         this.pedidoDetalleService = pedidoDetalleService;
     }
 
@@ -100,15 +101,6 @@ public class PedidoDetalleResource {
         Optional<PedidoDetalle> pedidoDetalle = pedidoDetalleService.findOne(id);
         return ResponseUtil.wrapOrNotFound(pedidoDetalle);
     }
-
-
-    @GetMapping("/pedido-detalles-by-pedidoNumero/{pedidoNumero}")
-    public List<PedidoDetalle> getPedidoDetailsByPedidoNo(@PathVariable Integer pedidoNumero) {
-        log.debug("REST request to get PedidoDetalle by pedidoNo : {}", pedidoNumero);
-        return pedidoDetalleService.findAllByPedidoNumero(pedidoNumero);
-    }
-
-
 
     /**
      * {@code DELETE  /pedido-detalles/:id} : delete the "id" pedidoDetalle.

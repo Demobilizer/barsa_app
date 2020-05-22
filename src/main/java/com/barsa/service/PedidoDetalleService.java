@@ -40,5 +40,4 @@ public interface PedidoDetalleService {
      */
     void delete(Long id);
 
-    List<PedidoDetalle> findAllByPedidoNumero(Integer pedidoNo);
 }

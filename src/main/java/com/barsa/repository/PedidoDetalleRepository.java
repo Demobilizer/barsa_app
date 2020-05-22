@@ -15,5 +15,5 @@ import java.util.Optional;
 @SuppressWarnings("unused")
 @Repository
 public interface PedidoDetalleRepository extends JpaRepository<PedidoDetalle, Long> {
-    List<PedidoDetalle> findAllByPedidoNumero(Optional<PedidoCabecera> pedidoNo);
+
 }

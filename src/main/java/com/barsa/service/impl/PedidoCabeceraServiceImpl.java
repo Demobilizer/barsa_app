@@ -82,31 +82,4 @@ public class PedidoCabeceraServiceImpl implements PedidoCabeceraService {
         pedidoCabeceraRepository.deleteById(id);
     }
 
-    @Override
-    public List<PedidoCabecera> findAllByClient(Integer noIdentification) {
-        Cliente cliente = clienteRepository.findByNoIdentificacion(noIdentification);
-        if (cliente.equals(null) || cliente == null) {
-            log.debug("Client is not present with the noIdentification: ", noIdentification);
-            throw new NullPointerException();
-        } else {
-            return pedidoCabeceraRepository.findByClienteNo(cliente);
-        }
-
-    }
-
-    @Override
-    public List<PedidoCabecera> findAllByClientAndFechaCreacion(Integer noIdentification, LocalDate fechaCreacion) {
-        Cliente cliente = clienteRepository.findByNoIdentificacion(noIdentification);
-        if (cliente.equals(null) || cliente == null) {
-            log.debug("Client is not present with the noIdentification: ", noIdentification);
-            throw new NullPointerException();
-        } else {
-            LocalDateTime localDateTimeFrom = fechaCreacion.atStartOfDay();
-            LocalDateTime localDateTimeTo = fechaCreacion.plusDays(1).atStartOfDay();
-            Instant fechaCreacionStart = localDateTimeFrom.toInstant(ZoneOffset.UTC);
-            Instant fechaCreacionEnd = localDateTimeTo.toInstant(ZoneOffset.UTC);
-
-            return pedidoCabeceraRepository.findByClienteNoAndFechaCreacion(cliente, fechaCreacionStart, fechaCreacionEnd);
-        }
-    }
 }

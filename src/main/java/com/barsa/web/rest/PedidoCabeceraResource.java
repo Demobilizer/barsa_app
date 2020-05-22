@@ -8,6 +8,7 @@ import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * REST controller for managing {@link com.barsa.domain.PedidoCabecera}.
+ * REST controller for managing {@link PedidoCabecera}.
  */
 @RestController
 @RequestMapping("/api")
@@ -35,9 +36,9 @@ public class PedidoCabeceraResource {
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
-    private final PedidoCabeceraService pedidoCabeceraService;
+    private PedidoCabeceraService pedidoCabeceraService;
 
-    public PedidoCabeceraResource(PedidoCabeceraService pedidoCabeceraService) {
+    public PedidoCabeceraResource() {
         this.pedidoCabeceraService = pedidoCabeceraService;
     }
 
@@ -104,24 +105,6 @@ public class PedidoCabeceraResource {
         Optional<PedidoCabecera> pedidoCabecera = pedidoCabeceraService.findOne(id);
         return ResponseUtil.wrapOrNotFound(pedidoCabecera);
     }
-
-    @GetMapping("/pedido-cabeceras-by-noId/{noIdentification}")
-    public List<PedidoCabecera> getPedidoCabeceraByClient(@PathVariable Integer noIdentification) {
-        log.debug("REST request to get all PedidoCabeceras by Client by noIdentification");
-        return pedidoCabeceraService.findAllByClient(noIdentification);
-    }
-
-    @GetMapping("/pedido-cabeceras-by-noId-by-date/{noIdentification}/{date}")
-    public List<PedidoCabecera> getPedidoCabeceraByClienteByDate(
-        @RequestParam("noIdentification") Integer noIdentification, @RequestParam("date") String date) {
-        log.debug("REST request to get all PedidoCabeceras by Client by noIdentification by fechaCreacion date");
-
-          LocalDate localDate = LocalDate.parse(date);
-
-        return pedidoCabeceraService.findAllByClientAndFechaCreacion(noIdentification, localDate);
-    }
-
-
 
     /**
      * {@code DELETE  /pedido-cabeceras/:id} : delete the "id" pedidoCabecera.

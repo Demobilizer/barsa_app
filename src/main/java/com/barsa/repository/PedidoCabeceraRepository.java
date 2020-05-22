@@ -18,8 +18,4 @@ import java.util.Optional;
 public interface PedidoCabeceraRepository extends JpaRepository<PedidoCabecera, Long> {
     List<PedidoCabecera> findByClienteNo(Cliente cliente);
 
-    @Query("SELECT p FROM PedidoCabecera p WHERE p.clienteNo = ?1 AND (p.fechaCreacion >= ?2 and p.fechaCreacion <= ?3)")
-    List<PedidoCabecera> findByClienteNoAndFechaCreacion(Cliente cliente, Instant fechaCreacionStart, Instant fechaCreacionEnd);
-
-    Optional<PedidoCabecera> findByPedidoNumero(Integer pedidoNo);
 }

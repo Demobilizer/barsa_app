@@ -42,7 +42,4 @@ public interface PedidoCabeceraService {
      */
     void delete(Long id);
 
-    List<PedidoCabecera> findAllByClient(Integer noIdentification);
-
-    List<PedidoCabecera> findAllByClientAndFechaCreacion(Integer noIdentification, LocalDate fechaCreacion);
 }
