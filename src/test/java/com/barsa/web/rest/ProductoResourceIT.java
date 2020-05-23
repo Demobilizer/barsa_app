@@ -2,7 +2,6 @@ package com.barsa.web.rest;
 
 import com.barsa.BarsaAppApp;
 import com.barsa.domain.Producto;
-import com.barsa.domain.PedidoDetalle;
 import com.barsa.repository.ProductoRepository;
 import com.barsa.service.ProductoService;
 import com.barsa.service.dto.ProductoCriteria;
@@ -888,26 +887,6 @@ public class ProductoResourceIT {
 
         // Get all the productoList where icovalor is greater than SMALLER_ICOVALOR
         defaultProductoShouldBeFound("icovalor.greaterThan=" + SMALLER_ICOVALOR);
-    }
-
-
-    @Test
-    @Transactional
-    public void getAllProductosByPedidoDetalleIsEqualToSomething() throws Exception {
-        // Initialize the database
-        productoRepository.saveAndFlush(producto);
-        PedidoDetalle pedidoDetalle = PedidoDetalleResourceIT.createEntity(em);
-        em.persist(pedidoDetalle);
-        em.flush();
-        producto.addPedidoDetalle(pedidoDetalle);
-        productoRepository.saveAndFlush(producto);
-        Long pedidoDetalleId = pedidoDetalle.getId();
-
-        // Get all the productoList where pedidoDetalle equals to pedidoDetalleId
-        defaultProductoShouldBeFound("pedidoDetalleId.equals=" + pedidoDetalleId);
-
-        // Get all the productoList where pedidoDetalle equals to pedidoDetalleId + 1
-        defaultProductoShouldNotBeFound("pedidoDetalleId.equals=" + (pedidoDetalleId + 1));
     }
 
     /**

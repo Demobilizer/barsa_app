@@ -7,4 +7,6 @@ import java.util.List;
 public interface PedidoDetalleServiceExtended extends PedidoDetalleService {
 
     List<PedidoDetalle> findAllByPedidoNumero(Integer pedidoNo);
+
+    List<PedidoDetalle> findAllByPedidoCabeceraId(Long cabeceraId);
 }

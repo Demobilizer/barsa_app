@@ -54,12 +54,12 @@ public class PedidoCabecera implements Serializable {
     @Column(name = "total", precision = 21, scale = 2)
     private BigDecimal total;
 
-    @OneToMany(mappedBy = "pedidoNumero")
+    @OneToMany(mappedBy = "pedidoCabecera")
     private Set<PedidoDetalle> pedidoDetalles = new HashSet<>();
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnoreProperties("pedidoCabeceras")
-    private Cliente clienteNo;
+    private Cliente cliente;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -211,13 +211,13 @@ public class PedidoCabecera implements Serializable {
 
     public PedidoCabecera addPedidoDetalle(PedidoDetalle pedidoDetalle) {
         this.pedidoDetalles.add(pedidoDetalle);
-        pedidoDetalle.setPedidoNumero(this);
+        pedidoDetalle.setPedidoCabecera(this);
         return this;
     }
 
     public PedidoCabecera removePedidoDetalle(PedidoDetalle pedidoDetalle) {
         this.pedidoDetalles.remove(pedidoDetalle);
-        pedidoDetalle.setPedidoNumero(null);
+        pedidoDetalle.setPedidoCabecera(null);
         return this;
     }
 
@@ -225,17 +225,17 @@ public class PedidoCabecera implements Serializable {
         this.pedidoDetalles = pedidoDetalles;
     }
 
-    public Cliente getClienteNo() {
-        return clienteNo;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public PedidoCabecera clienteNo(Cliente cliente) {
-        this.clienteNo = cliente;
+    public PedidoCabecera cliente(Cliente cliente) {
+        this.cliente = cliente;
         return this;
     }
 
-    public void setClienteNo(Cliente cliente) {
-        this.clienteNo = cliente;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

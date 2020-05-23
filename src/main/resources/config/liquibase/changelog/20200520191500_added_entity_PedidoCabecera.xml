@@ -46,7 +46,7 @@
             <column name="total" type="decimal(21,2)">
                 <constraints nullable="true" />
             </column>
-            <column name="cliente_no_id" type="bigint">
+            <column name="cliente_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->

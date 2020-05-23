@@ -1,7 +1,6 @@
 package com.barsa.web.rest;
 
 import com.barsa.domain.PedidoDetalle;
-import com.barsa.service.PedidoDetalleService;
 import com.barsa.service.PedidoDetalleServiceExtended;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +30,15 @@ public class PedidoDetalleResourceExtended {
             throw new NullPointerException("no Pedido Details found for given pedido Numero : "+pedidoNumero);
         }
         return pedidoDetalleServiceExtended.findAllByPedidoNumero(pedidoNumero);
+    }
+
+    @GetMapping("/pedido-detalles/pedido-cabecera/{cabeceraId}")
+    public List<PedidoDetalle> getPedidoDetailsByPedidoCabecera(@PathVariable Long cabeceraId) {
+        log.debug("REST request to get all  PedidoCabecera by CabeceraId : {}", cabeceraId);
+        if (pedidoDetalleServiceExtended.findAllByPedidoCabeceraId(cabeceraId).isEmpty()) {
+            throw new NullPointerException("no Pedido Cabecera found for given CabeceraId : "+cabeceraId);
+        }
+        return pedidoDetalleServiceExtended.findAllByPedidoCabeceraId(cabeceraId);
     }
 
 }

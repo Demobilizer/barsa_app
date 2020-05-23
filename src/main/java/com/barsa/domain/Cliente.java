@@ -45,7 +45,7 @@ public class Cliente implements Serializable {
     @Column(name = "email")
     private String email;
 
-    @OneToMany(mappedBy = "clienteNo")
+    @OneToMany(mappedBy = "cliente")
     private Set<PedidoCabecera> pedidoCabeceras = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -172,13 +172,13 @@ public class Cliente implements Serializable {
 
     public Cliente addPedidoCabecera(PedidoCabecera pedidoCabecera) {
         this.pedidoCabeceras.add(pedidoCabecera);
-        pedidoCabecera.setClienteNo(this);
+        pedidoCabecera.setCliente(this);
         return this;
     }
 
     public Cliente removePedidoCabecera(PedidoCabecera pedidoCabecera) {
         this.pedidoCabeceras.remove(pedidoCabecera);
-        pedidoCabecera.setClienteNo(null);
+        pedidoCabecera.setCliente(null);
         return this;
     }
 

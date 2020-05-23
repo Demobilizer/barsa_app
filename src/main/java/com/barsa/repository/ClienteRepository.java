@@ -11,5 +11,4 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
-    Cliente findByNoIdentificacion(Integer noIdentificacion);
 }

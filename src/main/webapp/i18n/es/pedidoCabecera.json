@@ -27,7 +27,7 @@
       "totalImpConsumo": "Total Imp Consumo",
       "total": "Total",
       "pedidoDetalle": "Pedido Detalle",
-      "clienteNo": "Cliente No"
+      "cliente": "Cliente"
     }
   }
 }

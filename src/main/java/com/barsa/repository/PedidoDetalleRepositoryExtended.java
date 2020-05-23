@@ -10,5 +10,7 @@ import java.util.Optional;
 @Repository
 public interface PedidoDetalleRepositoryExtended extends PedidoDetalleRepository {
 
-    List<PedidoDetalle> findAllByPedidoNumero(Optional<PedidoCabecera> pedidoNo);
+    List<PedidoDetalle> findAllByPedidoCabecera(Optional<PedidoCabecera> pedidoCabecera);
+
+    List<PedidoDetalle> findByPedidoCabeceraId(Long cabeceraId);
 }

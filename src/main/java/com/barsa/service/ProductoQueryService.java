@@ -106,10 +106,6 @@ public class ProductoQueryService extends QueryService<Producto> {
             if (criteria.getIcovalor() != null) {
                 specification = specification.and(buildRangeSpecification(criteria.getIcovalor(), Producto_.icovalor));
             }
-            if (criteria.getPedidoDetalleId() != null) {
-                specification = specification.and(buildSpecification(criteria.getPedidoDetalleId(),
-                    root -> root.join(Producto_.pedidoDetalles, JoinType.LEFT).get(PedidoDetalle_.id)));
-            }
         }
         return specification;
     }

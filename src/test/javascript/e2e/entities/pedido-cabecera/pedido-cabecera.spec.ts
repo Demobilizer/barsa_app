@@ -93,7 +93,7 @@ describe('PedidoCabecera e2e test', () => {
     expect(await pedidoCabeceraUpdatePage.getTotalImpConsumoInput()).to.eq('5');
     await pedidoCabeceraUpdatePage.setTotalInput('5');
     expect(await pedidoCabeceraUpdatePage.getTotalInput()).to.eq('5');
-    await pedidoCabeceraUpdatePage.clienteNoSelectLastOption();
+    await pedidoCabeceraUpdatePage.clienteSelectLastOption();
     await waitUntilDisplayed(pedidoCabeceraUpdatePage.saveButton);
     await pedidoCabeceraUpdatePage.save();
     await waitUntilHidden(pedidoCabeceraUpdatePage.saveButton);

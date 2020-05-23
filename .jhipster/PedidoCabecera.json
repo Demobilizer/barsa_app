@@ -46,14 +46,14 @@
         {
             "relationshipType": "one-to-many",
             "otherEntityName": "pedidoDetalle",
-            "otherEntityRelationshipName": "pedidoNumero",
+            "otherEntityRelationshipName": "pedidoCabecera",
             "relationshipName": "pedidoDetalle"
         },
         {
             "relationshipType": "many-to-one",
             "otherEntityName": "cliente",
             "otherEntityRelationshipName": "pedidoCabecera",
-            "relationshipName": "clienteNo",
+            "relationshipName": "cliente",
             "otherEntityField": "id"
         }
     ],

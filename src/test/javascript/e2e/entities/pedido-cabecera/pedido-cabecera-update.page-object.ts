@@ -14,7 +14,7 @@ export default class PedidoCabeceraUpdatePage {
   totalIvaInput: ElementFinder = element(by.css('input#pedido-cabecera-totalIva'));
   totalImpConsumoInput: ElementFinder = element(by.css('input#pedido-cabecera-totalImpConsumo'));
   totalInput: ElementFinder = element(by.css('input#pedido-cabecera-total'));
-  clienteNoSelect: ElementFinder = element(by.css('select#pedido-cabecera-clienteNo'));
+  clienteSelect: ElementFinder = element(by.css('select#pedido-cabecera-cliente'));
 
   getPageTitle() {
     return this.pageTitle;
@@ -90,23 +90,23 @@ export default class PedidoCabeceraUpdatePage {
     return this.totalInput.getAttribute('value');
   }
 
-  async clienteNoSelectLastOption() {
-    await this.clienteNoSelect
+  async clienteSelectLastOption() {
+    await this.clienteSelect
       .all(by.tagName('option'))
       .last()
       .click();
   }
 
-  async clienteNoSelectOption(option) {
-    await this.clienteNoSelect.sendKeys(option);
+  async clienteSelectOption(option) {
+    await this.clienteSelect.sendKeys(option);
   }
 
-  getClienteNoSelect() {
-    return this.clienteNoSelect;
+  getClienteSelect() {
+    return this.clienteSelect;
   }
 
-  async getClienteNoSelectedOption() {
-    return this.clienteNoSelect.element(by.css('option:checked')).getText();
+  async getClienteSelectedOption() {
+    return this.clienteSelect.element(by.css('option:checked')).getText();
   }
 
   async save() {

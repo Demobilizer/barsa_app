@@ -8,17 +8,11 @@
     -->
     <changeSet id="20200520191600-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="pedido_numero_id"
+        <addForeignKeyConstraint baseColumnNames="pedido_cabecera_id"
                                  baseTableName="pedido_detalle"
-                                 constraintName="fk_pedido_detalle_pedido_numero_id"
+                                 constraintName="fk_pedido_detalle_pedido_cabecera_id"
                                  referencedColumnNames="id"
                                  referencedTableName="pedido_cabecera"/>
-
-        <addForeignKeyConstraint baseColumnNames="articulo_codigo_id"
-                                 baseTableName="pedido_detalle"
-                                 constraintName="fk_pedido_detalle_articulo_codigo_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="producto"/>
 
     </changeSet>
 </databaseChangeLog>

@@ -35,14 +35,7 @@
             "fieldType": "BigDecimal"
         }
     ],
-    "relationships": [
-        {
-            "relationshipType": "one-to-many",
-            "otherEntityName": "pedidoDetalle",
-            "otherEntityRelationshipName": "articuloCodigo",
-            "relationshipName": "pedidoDetalle"
-        }
-    ],
+    "relationships": [],
     "changelogDate": "20200520191300",
     "entityTableName": "producto",
     "dto": "no",

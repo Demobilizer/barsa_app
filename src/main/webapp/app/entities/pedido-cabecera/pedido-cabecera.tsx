@@ -67,7 +67,7 @@ export const PedidoCabecera = (props: IPedidoCabeceraProps) => {
                   <Translate contentKey="barsaAppApp.pedidoCabecera.total">Total</Translate>
                 </th>
                 <th>
-                  <Translate contentKey="barsaAppApp.pedidoCabecera.clienteNo">Cliente No</Translate>
+                  <Translate contentKey="barsaAppApp.pedidoCabecera.cliente">Cliente</Translate>
                 </th>
                 <th />
               </tr>
@@ -95,11 +95,7 @@ export const PedidoCabecera = (props: IPedidoCabeceraProps) => {
                   <td>{pedidoCabecera.totalImpConsumo}</td>
                   <td>{pedidoCabecera.total}</td>
                   <td>
-                    {pedidoCabecera.clienteNo ? (
-                      <Link to={`cliente/${pedidoCabecera.clienteNo.id}`}>{pedidoCabecera.clienteNo.id}</Link>
-                    ) : (
-                      ''
-                    )}
+                    {pedidoCabecera.cliente ? <Link to={`cliente/${pedidoCabecera.cliente.id}`}>{pedidoCabecera.cliente.id}</Link> : ''}
                   </td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">

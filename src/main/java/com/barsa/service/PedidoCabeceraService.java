@@ -2,8 +2,6 @@ package com.barsa.service;
 
 import com.barsa.domain.PedidoCabecera;
 
-import java.time.Instant;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,5 +39,4 @@ public interface PedidoCabeceraService {
      * @param id the id of the entity.
      */
     void delete(Long id);
-
 }

@@ -7,8 +7,7 @@ export default class PedidoDetalleUpdatePage {
   posicionInput: ElementFinder = element(by.css('input#pedido-detalle-posicion'));
   cantidadInput: ElementFinder = element(by.css('input#pedido-detalle-cantidad'));
   totalInput: ElementFinder = element(by.css('input#pedido-detalle-total'));
-  pedidoNumeroSelect: ElementFinder = element(by.css('select#pedido-detalle-pedidoNumero'));
-  articuloCodigoSelect: ElementFinder = element(by.css('select#pedido-detalle-articuloCodigo'));
+  pedidoCabeceraSelect: ElementFinder = element(by.css('select#pedido-detalle-pedidoCabecera'));
 
   getPageTitle() {
     return this.pageTitle;
@@ -38,42 +37,23 @@ export default class PedidoDetalleUpdatePage {
     return this.totalInput.getAttribute('value');
   }
 
-  async pedidoNumeroSelectLastOption() {
-    await this.pedidoNumeroSelect
+  async pedidoCabeceraSelectLastOption() {
+    await this.pedidoCabeceraSelect
       .all(by.tagName('option'))
       .last()
       .click();
   }
 
-  async pedidoNumeroSelectOption(option) {
-    await this.pedidoNumeroSelect.sendKeys(option);
+  async pedidoCabeceraSelectOption(option) {
+    await this.pedidoCabeceraSelect.sendKeys(option);
   }
 
-  getPedidoNumeroSelect() {
-    return this.pedidoNumeroSelect;
+  getPedidoCabeceraSelect() {
+    return this.pedidoCabeceraSelect;
   }
 
-  async getPedidoNumeroSelectedOption() {
-    return this.pedidoNumeroSelect.element(by.css('option:checked')).getText();
-  }
-
-  async articuloCodigoSelectLastOption() {
-    await this.articuloCodigoSelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
-  }
-
-  async articuloCodigoSelectOption(option) {
-    await this.articuloCodigoSelect.sendKeys(option);
-  }
-
-  getArticuloCodigoSelect() {
-    return this.articuloCodigoSelect;
-  }
-
-  async getArticuloCodigoSelectedOption() {
-    return this.articuloCodigoSelect.element(by.css('option:checked')).getText();
+  async getPedidoCabeceraSelectedOption() {
+    return this.pedidoCabeceraSelect.element(by.css('option:checked')).getText();
   }
 
   async save() {

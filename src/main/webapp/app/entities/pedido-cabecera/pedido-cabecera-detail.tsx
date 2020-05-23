@@ -90,9 +90,9 @@ export const PedidoCabeceraDetail = (props: IPedidoCabeceraDetailProps) => {
           </dt>
           <dd>{pedidoCabeceraEntity.total}</dd>
           <dt>
-            <Translate contentKey="barsaAppApp.pedidoCabecera.clienteNo">Cliente No</Translate>
+            <Translate contentKey="barsaAppApp.pedidoCabecera.cliente">Cliente</Translate>
           </dt>
-          <dd>{pedidoCabeceraEntity.clienteNo ? pedidoCabeceraEntity.clienteNo.id : ''}</dd>
+          <dd>{pedidoCabeceraEntity.cliente ? pedidoCabeceraEntity.cliente.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/pedido-cabecera" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}

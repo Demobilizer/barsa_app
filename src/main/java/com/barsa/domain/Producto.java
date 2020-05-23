@@ -6,8 +6,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A Producto.
@@ -49,9 +47,6 @@ public class Producto implements Serializable {
 
     @Column(name = "icovalor", precision = 21, scale = 2)
     private BigDecimal icovalor;
-
-    @OneToMany(mappedBy = "articuloCodigo")
-    private Set<PedidoDetalle> pedidoDetalles = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -177,31 +172,6 @@ public class Producto implements Serializable {
 
     public void setIcovalor(BigDecimal icovalor) {
         this.icovalor = icovalor;
-    }
-
-    public Set<PedidoDetalle> getPedidoDetalles() {
-        return pedidoDetalles;
-    }
-
-    public Producto pedidoDetalles(Set<PedidoDetalle> pedidoDetalles) {
-        this.pedidoDetalles = pedidoDetalles;
-        return this;
-    }
-
-    public Producto addPedidoDetalle(PedidoDetalle pedidoDetalle) {
-        this.pedidoDetalles.add(pedidoDetalle);
-        pedidoDetalle.setArticuloCodigo(this);
-        return this;
-    }
-
-    public Producto removePedidoDetalle(PedidoDetalle pedidoDetalle) {
-        this.pedidoDetalles.remove(pedidoDetalle);
-        pedidoDetalle.setArticuloCodigo(null);
-        return this;
-    }
-
-    public void setPedidoDetalles(Set<PedidoDetalle> pedidoDetalles) {
-        this.pedidoDetalles = pedidoDetalles;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

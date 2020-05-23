@@ -1,7 +1,5 @@
 package com.barsa.service.impl;
 
-import com.barsa.domain.Cliente;
-import com.barsa.repository.ClienteRepository;
 import com.barsa.service.PedidoCabeceraService;
 import com.barsa.domain.PedidoCabecera;
 import com.barsa.repository.PedidoCabeceraRepository;
@@ -11,8 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.*;
-import java.time.temporal.TemporalAdjuster;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,11 +23,8 @@ public class PedidoCabeceraServiceImpl implements PedidoCabeceraService {
 
     private final PedidoCabeceraRepository pedidoCabeceraRepository;
 
-    private final ClienteRepository clienteRepository;
-
-    public PedidoCabeceraServiceImpl(PedidoCabeceraRepository pedidoCabeceraRepository, ClienteRepository clienteRepository) {
+    public PedidoCabeceraServiceImpl(PedidoCabeceraRepository pedidoCabeceraRepository) {
         this.pedidoCabeceraRepository = pedidoCabeceraRepository;
-        this.clienteRepository = clienteRepository;
     }
 
     /**
@@ -81,5 +74,4 @@ public class PedidoCabeceraServiceImpl implements PedidoCabeceraService {
         log.debug("Request to delete PedidoCabecera : {}", id);
         pedidoCabeceraRepository.deleteById(id);
     }
-
 }

@@ -1,5 +1,3 @@
-import { IPedidoDetalle } from 'app/shared/model/pedido-detalle.model';
-
 export interface IProducto {
   id?: number;
   codigo?: string;
@@ -11,7 +9,6 @@ export interface IProducto {
   precio?: number;
   iva?: number;
   icovalor?: number;
-  pedidoDetalles?: IPedidoDetalle[];
 }
 
 export const defaultValue: Readonly<IProducto> = {};

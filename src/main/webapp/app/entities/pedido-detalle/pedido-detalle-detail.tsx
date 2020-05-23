@@ -44,13 +44,9 @@ export const PedidoDetalleDetail = (props: IPedidoDetalleDetailProps) => {
           </dt>
           <dd>{pedidoDetalleEntity.total}</dd>
           <dt>
-            <Translate contentKey="barsaAppApp.pedidoDetalle.pedidoNumero">Pedido Numero</Translate>
+            <Translate contentKey="barsaAppApp.pedidoDetalle.pedidoCabecera">Pedido Cabecera</Translate>
           </dt>
-          <dd>{pedidoDetalleEntity.pedidoNumero ? pedidoDetalleEntity.pedidoNumero.id : ''}</dd>
-          <dt>
-            <Translate contentKey="barsaAppApp.pedidoDetalle.articuloCodigo">Articulo Codigo</Translate>
-          </dt>
-          <dd>{pedidoDetalleEntity.articuloCodigo ? pedidoDetalleEntity.articuloCodigo.id : ''}</dd>
+          <dd>{pedidoDetalleEntity.pedidoCabecera ? pedidoDetalleEntity.pedidoCabecera.pedidoNumero : ''}</dd>
         </dl>
         <Button tag={Link} to="/pedido-detalle" replace color="info">
           <FontAwesomeIcon icon="arrow-left" />{' '}

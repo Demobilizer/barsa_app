@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -46,7 +47,7 @@ public class PedidoDetalleResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/pedido-detalles")
-    public ResponseEntity<PedidoDetalle> createPedidoDetalle(@RequestBody PedidoDetalle pedidoDetalle) throws URISyntaxException {
+    public ResponseEntity<PedidoDetalle> createPedidoDetalle(@Valid @RequestBody PedidoDetalle pedidoDetalle) throws URISyntaxException {
         log.debug("REST request to save PedidoDetalle : {}", pedidoDetalle);
         if (pedidoDetalle.getId() != null) {
             throw new BadRequestAlertException("A new pedidoDetalle cannot already have an ID", ENTITY_NAME, "idexists");
@@ -67,7 +68,7 @@ public class PedidoDetalleResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/pedido-detalles")
-    public ResponseEntity<PedidoDetalle> updatePedidoDetalle(@RequestBody PedidoDetalle pedidoDetalle) throws URISyntaxException {
+    public ResponseEntity<PedidoDetalle> updatePedidoDetalle(@Valid @RequestBody PedidoDetalle pedidoDetalle) throws URISyntaxException {
         log.debug("REST request to update PedidoDetalle : {}", pedidoDetalle);
         if (pedidoDetalle.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
@@ -96,7 +97,7 @@ public class PedidoDetalleResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the pedidoDetalle, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/pedido-detalles/{id}")
-    public ResponseEntity<PedidoDetalle> getPedidoDetalleById(@PathVariable Long id) {
+    public ResponseEntity<PedidoDetalle> getPedidoDetalle(@PathVariable Long id) {
         log.debug("REST request to get PedidoDetalle : {}", id);
         Optional<PedidoDetalle> pedidoDetalle = pedidoDetalleService.findOne(id);
         return ResponseUtil.wrapOrNotFound(pedidoDetalle);

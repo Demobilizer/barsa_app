@@ -3,6 +3,7 @@ package com.barsa.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -30,13 +31,10 @@ public class PedidoDetalle implements Serializable {
     @Column(name = "total", precision = 21, scale = 2)
     private BigDecimal total;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
+    @NotNull
     @JsonIgnoreProperties("pedidoDetalles")
-    private PedidoCabecera pedidoNumero;
-
-    @ManyToOne
-    @JsonIgnoreProperties("pedidoDetalles")
-    private Producto articuloCodigo;
+    private PedidoCabecera pedidoCabecera;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -86,30 +84,17 @@ public class PedidoDetalle implements Serializable {
         this.total = total;
     }
 
-    public PedidoCabecera getPedidoNumero() {
-        return pedidoNumero;
+    public PedidoCabecera getPedidoCabecera() {
+        return pedidoCabecera;
     }
 
-    public PedidoDetalle pedidoNumero(PedidoCabecera pedidoCabecera) {
-        this.pedidoNumero = pedidoCabecera;
+    public PedidoDetalle pedidoCabecera(PedidoCabecera pedidoCabecera) {
+        this.pedidoCabecera = pedidoCabecera;
         return this;
     }
 
-    public void setPedidoNumero(PedidoCabecera pedidoCabecera) {
-        this.pedidoNumero = pedidoCabecera;
-    }
-
-    public Producto getArticuloCodigo() {
-        return articuloCodigo;
-    }
-
-    public PedidoDetalle articuloCodigo(Producto producto) {
-        this.articuloCodigo = producto;
-        return this;
-    }
-
-    public void setArticuloCodigo(Producto producto) {
-        this.articuloCodigo = producto;
+    public void setPedidoCabecera(PedidoCabecera pedidoCabecera) {
+        this.pedidoCabecera = pedidoCabecera;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

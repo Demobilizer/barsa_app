@@ -55,7 +55,12 @@ public class PedidoDetalleServiceImplExtended implements PedidoDetalleServiceExt
             log.debug("pedidoCabecera is null for given pedidoNo : {}", pedidoNo);
             throw new NullPointerException("no Pedido Cabecera found for given pedido Numero : "+pedidoNo);
         } else {
-            return pedidoDetalleRepositoryExtended.findAllByPedidoNumero(Optional.of(pedidoCabecera));
+            return pedidoDetalleRepositoryExtended.findAllByPedidoCabecera(Optional.of(pedidoCabecera));
         }
+    }
+
+    @Override
+    public List<PedidoDetalle> findAllByPedidoCabeceraId(Long cabeceraId) {
+        return pedidoDetalleRepositoryExtended.findByPedidoCabeceraId(cabeceraId);
     }
 }

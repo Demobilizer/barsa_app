@@ -2,6 +2,7 @@ package com.barsa.web.rest;
 
 import com.barsa.BarsaAppApp;
 import com.barsa.domain.PedidoDetalle;
+import com.barsa.domain.PedidoCabecera;
 import com.barsa.repository.PedidoDetalleRepository;
 import com.barsa.service.PedidoDetalleService;
 
@@ -66,6 +67,16 @@ public class PedidoDetalleResourceIT {
             .posicion(DEFAULT_POSICION)
             .cantidad(DEFAULT_CANTIDAD)
             .total(DEFAULT_TOTAL);
+        // Add required entity
+        PedidoCabecera pedidoCabecera;
+        if (TestUtil.findAll(em, PedidoCabecera.class).isEmpty()) {
+            pedidoCabecera = PedidoCabeceraResourceIT.createEntity(em);
+            em.persist(pedidoCabecera);
+            em.flush();
+        } else {
+            pedidoCabecera = TestUtil.findAll(em, PedidoCabecera.class).get(0);
+        }
+        pedidoDetalle.setPedidoCabecera(pedidoCabecera);
         return pedidoDetalle;
     }
     /**
@@ -79,6 +90,16 @@ public class PedidoDetalleResourceIT {
             .posicion(UPDATED_POSICION)
             .cantidad(UPDATED_CANTIDAD)
             .total(UPDATED_TOTAL);
+        // Add required entity
+        PedidoCabecera pedidoCabecera;
+        if (TestUtil.findAll(em, PedidoCabecera.class).isEmpty()) {
+            pedidoCabecera = PedidoCabeceraResourceIT.createUpdatedEntity(em);
+            em.persist(pedidoCabecera);
+            em.flush();
+        } else {
+            pedidoCabecera = TestUtil.findAll(em, PedidoCabecera.class).get(0);
+        }
+        pedidoDetalle.setPedidoCabecera(pedidoCabecera);
         return pedidoDetalle;
     }
 

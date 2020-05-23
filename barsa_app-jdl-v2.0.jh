@@ -1,0 +1,63 @@
+entity Cliente {
+    tipoDoc   String,
+    noIdentificacion Integer,
+    nombre    String,
+    apellido  String,
+    direccion String,
+    telefono  String,
+    celular   String,
+    email     String,
+}
+
+entity Producto {
+    codigo      String,
+    descripcion String,
+    imagen      ImageBlob,
+    unidad      String,
+    cantidad    Integer,
+    precio      BigDecimal,
+    iva         BigDecimal,
+    icovalor    BigDecimal
+}
+
+entity ListaPrecios {
+    descripcion String,
+    porcentaje  BigDecimal,
+    valor       BigDecimal   
+    }
+
+entity PedidoCabecera {
+    fechaCreacion   Instant,
+	fechaEntrega    Instant,
+    pedidoNumero    Integer,
+    descripcion     String,
+    facturado       Boolean,
+    entregado       Boolean,
+    totalBruto      BigDecimal,
+    totalIva        BigDecimal,
+    totalImpConsumo BigDecimal,
+    total           BigDecimal 
+}
+
+entity PedidoDetalle {
+    posicion       Integer,
+	cantidad       Integer,
+    total          BigDecimal
+}
+
+
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+    Cliente        to PedidoCabecera{cliente},
+    PedidoCabecera to PedidoDetalle{pedidoCabecera(pedidoNumero) required},
+    //Producto       to PedidoDetalle{articuloCodigo} // Producto is not having field articuloCodigo!
+    
+}
+
+
+// defining multiple oneToOne relationships
+// Set pagination options
+paginate Cliente, Producto with infinite-scroll
+filter Producto
+service all with serviceImpl

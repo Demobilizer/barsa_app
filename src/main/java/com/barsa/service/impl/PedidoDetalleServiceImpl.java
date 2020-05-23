@@ -1,7 +1,5 @@
 package com.barsa.service.impl;
 
-import com.barsa.domain.PedidoCabecera;
-import com.barsa.repository.PedidoCabeceraRepository;
 import com.barsa.service.PedidoDetalleService;
 import com.barsa.domain.PedidoDetalle;
 import com.barsa.repository.PedidoDetalleRepository;
@@ -25,11 +23,8 @@ public class PedidoDetalleServiceImpl implements PedidoDetalleService {
 
     private final PedidoDetalleRepository pedidoDetalleRepository;
 
-    private final PedidoCabeceraRepository pedidoCabeceraRepository;
-
-    public PedidoDetalleServiceImpl(PedidoDetalleRepository pedidoDetalleRepository, PedidoCabeceraRepository pedidoCabeceraRepository) {
+    public PedidoDetalleServiceImpl(PedidoDetalleRepository pedidoDetalleRepository) {
         this.pedidoDetalleRepository = pedidoDetalleRepository;
-        this.pedidoCabeceraRepository = pedidoCabeceraRepository;
     }
 
     /**
@@ -79,5 +74,4 @@ public class PedidoDetalleServiceImpl implements PedidoDetalleService {
         log.debug("Request to delete PedidoDetalle : {}", id);
         pedidoDetalleRepository.deleteById(id);
     }
-
 }

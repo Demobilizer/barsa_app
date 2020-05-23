@@ -15,10 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,9 +32,9 @@ public class PedidoCabeceraResource {
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
-    private PedidoCabeceraService pedidoCabeceraService;
+    private final PedidoCabeceraService pedidoCabeceraService;
 
-    public PedidoCabeceraResource() {
+    public PedidoCabeceraResource(@Qualifier("pedidoCabeceraServiceImpl") PedidoCabeceraService pedidoCabeceraService) {
         this.pedidoCabeceraService = pedidoCabeceraService;
     }
 

@@ -21,7 +21,7 @@ describe('PedidoDetalle e2e test', () => {
   let signInPage: SignInPage;
   let pedidoDetalleComponentsPage: PedidoDetalleComponentsPage;
   let pedidoDetalleUpdatePage: PedidoDetalleUpdatePage;
-  let pedidoDetalleDeleteDialog: PedidoDetalleDeleteDialog;
+  /* let pedidoDetalleDeleteDialog: PedidoDetalleDeleteDialog; */
   let beforeRecordsCount = 0;
 
   before(async () => {
@@ -59,49 +59,48 @@ describe('PedidoDetalle e2e test', () => {
     await pedidoDetalleUpdatePage.cancel();
   });
 
-  it('should create and save PedidoDetalles', async () => {
-    await pedidoDetalleComponentsPage.createButton.click();
-    await pedidoDetalleUpdatePage.setPosicionInput('5');
-    expect(await pedidoDetalleUpdatePage.getPosicionInput()).to.eq('5');
-    await pedidoDetalleUpdatePage.setCantidadInput('5');
-    expect(await pedidoDetalleUpdatePage.getCantidadInput()).to.eq('5');
-    await pedidoDetalleUpdatePage.setTotalInput('5');
-    expect(await pedidoDetalleUpdatePage.getTotalInput()).to.eq('5');
-    await pedidoDetalleUpdatePage.pedidoNumeroSelectLastOption();
-    await pedidoDetalleUpdatePage.articuloCodigoSelectLastOption();
-    await waitUntilDisplayed(pedidoDetalleUpdatePage.saveButton);
-    await pedidoDetalleUpdatePage.save();
-    await waitUntilHidden(pedidoDetalleUpdatePage.saveButton);
-    expect(await isVisible(pedidoDetalleUpdatePage.saveButton)).to.be.false;
+  /*  it('should create and save PedidoDetalles', async () => {
+        await pedidoDetalleComponentsPage.createButton.click();
+        await pedidoDetalleUpdatePage.setPosicionInput('5');
+        expect(await pedidoDetalleUpdatePage.getPosicionInput()).to.eq('5');
+        await pedidoDetalleUpdatePage.setCantidadInput('5');
+        expect(await pedidoDetalleUpdatePage.getCantidadInput()).to.eq('5');
+        await pedidoDetalleUpdatePage.setTotalInput('5');
+        expect(await pedidoDetalleUpdatePage.getTotalInput()).to.eq('5');
+        await pedidoDetalleUpdatePage.pedidoCabeceraSelectLastOption();
+        await waitUntilDisplayed(pedidoDetalleUpdatePage.saveButton);
+        await pedidoDetalleUpdatePage.save();
+        await waitUntilHidden(pedidoDetalleUpdatePage.saveButton);
+        expect(await isVisible(pedidoDetalleUpdatePage.saveButton)).to.be.false;
 
-    expect(await pedidoDetalleComponentsPage.createButton.isEnabled()).to.be.true;
+        expect(await pedidoDetalleComponentsPage.createButton.isEnabled()).to.be.true;
 
-    await waitUntilDisplayed(pedidoDetalleComponentsPage.table);
+        await waitUntilDisplayed(pedidoDetalleComponentsPage.table);
 
-    await waitUntilCount(pedidoDetalleComponentsPage.records, beforeRecordsCount + 1);
-    expect(await pedidoDetalleComponentsPage.records.count()).to.eq(beforeRecordsCount + 1);
-  });
+        await waitUntilCount(pedidoDetalleComponentsPage.records, beforeRecordsCount + 1);
+        expect(await pedidoDetalleComponentsPage.records.count()).to.eq(beforeRecordsCount + 1);
+    }); */
 
-  it('should delete last PedidoDetalle', async () => {
-    const deleteButton = pedidoDetalleComponentsPage.getDeleteButton(pedidoDetalleComponentsPage.records.last());
-    await click(deleteButton);
+  /*  it('should delete last PedidoDetalle', async () => {
 
-    pedidoDetalleDeleteDialog = new PedidoDetalleDeleteDialog();
-    await waitUntilDisplayed(pedidoDetalleDeleteDialog.deleteModal);
-    expect(await pedidoDetalleDeleteDialog.getDialogTitle().getAttribute('id')).to.match(/barsaAppApp.pedidoDetalle.delete.question/);
-    await pedidoDetalleDeleteDialog.clickOnConfirmButton();
+        const deleteButton = pedidoDetalleComponentsPage.getDeleteButton(pedidoDetalleComponentsPage.records.last());
+        await click(deleteButton);
 
-    await waitUntilHidden(pedidoDetalleDeleteDialog.deleteModal);
+        pedidoDetalleDeleteDialog = new PedidoDetalleDeleteDialog();
+        await waitUntilDisplayed(pedidoDetalleDeleteDialog.deleteModal);
+        expect(await pedidoDetalleDeleteDialog.getDialogTitle().getAttribute('id')).to.match(/barsaAppApp.pedidoDetalle.delete.question/);
+        await pedidoDetalleDeleteDialog.clickOnConfirmButton();
 
-    expect(await isVisible(pedidoDetalleDeleteDialog.deleteModal)).to.be.false;
+        await waitUntilHidden(pedidoDetalleDeleteDialog.deleteModal);
 
-    await waitUntilAnyDisplayed([pedidoDetalleComponentsPage.noRecords, pedidoDetalleComponentsPage.table]);
+        expect(await isVisible(pedidoDetalleDeleteDialog.deleteModal)).to.be.false;
 
-    const afterCount = (await isVisible(pedidoDetalleComponentsPage.noRecords))
-      ? 0
-      : await getRecordsCount(pedidoDetalleComponentsPage.table);
-    expect(afterCount).to.eq(beforeRecordsCount);
-  });
+        await waitUntilAnyDisplayed([pedidoDetalleComponentsPage.noRecords,
+        pedidoDetalleComponentsPage.table]);
+    
+        const afterCount = await isVisible(pedidoDetalleComponentsPage.noRecords) ? 0 : await getRecordsCount(pedidoDetalleComponentsPage.table);
+        expect(afterCount).to.eq(beforeRecordsCount);
+    }); */
 
   after(async () => {
     await navBarPage.autoSignOut();

@@ -59,7 +59,7 @@ public class PedidoCabeceraServiceImplExtended implements PedidoCabeceraServiceE
             log.debug("Client is not present with the noIdentification: ", noIdentification);
             throw new NullPointerException("no Pedido Cabecera found for given noIdentification : "+noIdentification);
         } else {
-            return pedidoCabeceraRepositoryExtended.findByClienteNo(cliente);
+            return pedidoCabeceraRepositoryExtended.findByCliente(cliente);
         }
 
     }
@@ -76,7 +76,7 @@ public class PedidoCabeceraServiceImplExtended implements PedidoCabeceraServiceE
             Instant fechaCreacionStart = localDateTimeFrom.toInstant(ZoneOffset.UTC);
             Instant fechaCreacionEnd = localDateTimeTo.toInstant(ZoneOffset.UTC);
 
-            return pedidoCabeceraRepositoryExtended.findByClienteNoAndFechaCreacion(cliente, fechaCreacionStart, fechaCreacionEnd);
+            return pedidoCabeceraRepositoryExtended.findByClienteAndFechaCreacion(cliente, fechaCreacionStart, fechaCreacionEnd);
         }
     }
 }

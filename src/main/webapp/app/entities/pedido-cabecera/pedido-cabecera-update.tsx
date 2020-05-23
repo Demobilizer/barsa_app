@@ -17,7 +17,7 @@ import { mapIdList } from 'app/shared/util/entity-utils';
 export interface IPedidoCabeceraUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
 export const PedidoCabeceraUpdate = (props: IPedidoCabeceraUpdateProps) => {
-  const [clienteNoId, setClienteNoId] = useState('0');
+  const [clienteId, setClienteId] = useState('0');
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
 
   const { pedidoCabeceraEntity, clientes, loading, updating } = props;
@@ -158,10 +158,10 @@ export const PedidoCabeceraUpdate = (props: IPedidoCabeceraUpdateProps) => {
                 <AvField id="pedido-cabecera-total" type="text" name="total" />
               </AvGroup>
               <AvGroup>
-                <Label for="pedido-cabecera-clienteNo">
-                  <Translate contentKey="barsaAppApp.pedidoCabecera.clienteNo">Cliente No</Translate>
+                <Label for="pedido-cabecera-cliente">
+                  <Translate contentKey="barsaAppApp.pedidoCabecera.cliente">Cliente</Translate>
                 </Label>
-                <AvInput id="pedido-cabecera-clienteNo" type="select" className="form-control" name="clienteNo.id">
+                <AvInput id="pedido-cabecera-cliente" type="select" className="form-control" name="cliente.id">
                   <option value="" key="0" />
                   {clientes
                     ? clientes.map(otherEntity => (

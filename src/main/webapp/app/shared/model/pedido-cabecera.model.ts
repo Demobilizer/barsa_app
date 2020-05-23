@@ -15,7 +15,7 @@ export interface IPedidoCabecera {
   totalImpConsumo?: number;
   total?: number;
   pedidoDetalles?: IPedidoDetalle[];
-  clienteNo?: ICliente;
+  cliente?: ICliente;
 }
 
 export const defaultValue: Readonly<IPedidoCabecera> = {

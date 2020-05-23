@@ -19,15 +19,9 @@
             "relationshipType": "many-to-one",
             "otherEntityName": "pedidoCabecera",
             "otherEntityRelationshipName": "pedidoDetalle",
-            "relationshipName": "pedidoNumero",
-            "otherEntityField": "id"
-        },
-        {
-            "relationshipType": "many-to-one",
-            "otherEntityName": "producto",
-            "otherEntityRelationshipName": "pedidoDetalle",
-            "relationshipName": "articuloCodigo",
-            "otherEntityField": "id"
+            "relationshipValidateRules": "required",
+            "relationshipName": "pedidoCabecera",
+            "otherEntityField": "pedidoNumero"
         }
     ],
     "changelogDate": "20200520191600",

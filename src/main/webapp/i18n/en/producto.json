@@ -23,8 +23,7 @@
       "cantidad": "Cantidad",
       "precio": "Precio",
       "iva": "Iva",
-      "icovalor": "Icovalor",
-      "pedidoDetalle": "Pedido Detalle"
+      "icovalor": "Icovalor"
     }
   }
 }

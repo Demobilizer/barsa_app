@@ -38,7 +38,7 @@
         {
             "relationshipType": "one-to-many",
             "otherEntityName": "pedidoCabecera",
-            "otherEntityRelationshipName": "clienteNo",
+            "otherEntityRelationshipName": "cliente",
             "relationshipName": "pedidoCabecera"
         }
     ],

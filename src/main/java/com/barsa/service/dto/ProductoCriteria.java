@@ -41,8 +41,6 @@ public class ProductoCriteria implements Serializable, Criteria {
 
     private BigDecimalFilter icovalor;
 
-    private LongFilter pedidoDetalleId;
-
     public ProductoCriteria() {
     }
 
@@ -55,7 +53,6 @@ public class ProductoCriteria implements Serializable, Criteria {
         this.precio = other.precio == null ? null : other.precio.copy();
         this.iva = other.iva == null ? null : other.iva.copy();
         this.icovalor = other.icovalor == null ? null : other.icovalor.copy();
-        this.pedidoDetalleId = other.pedidoDetalleId == null ? null : other.pedidoDetalleId.copy();
     }
 
     @Override
@@ -127,14 +124,6 @@ public class ProductoCriteria implements Serializable, Criteria {
         this.icovalor = icovalor;
     }
 
-    public LongFilter getPedidoDetalleId() {
-        return pedidoDetalleId;
-    }
-
-    public void setPedidoDetalleId(LongFilter pedidoDetalleId) {
-        this.pedidoDetalleId = pedidoDetalleId;
-    }
-
 
     @Override
     public boolean equals(Object o) {
@@ -153,8 +142,7 @@ public class ProductoCriteria implements Serializable, Criteria {
             Objects.equals(cantidad, that.cantidad) &&
             Objects.equals(precio, that.precio) &&
             Objects.equals(iva, that.iva) &&
-            Objects.equals(icovalor, that.icovalor) &&
-            Objects.equals(pedidoDetalleId, that.pedidoDetalleId);
+            Objects.equals(icovalor, that.icovalor);
     }
 
     @Override
@@ -167,8 +155,7 @@ public class ProductoCriteria implements Serializable, Criteria {
         cantidad,
         precio,
         iva,
-        icovalor,
-        pedidoDetalleId
+        icovalor
         );
     }
 
@@ -183,7 +170,6 @@ public class ProductoCriteria implements Serializable, Criteria {
                 (precio != null ? "precio=" + precio + ", " : "") +
                 (iva != null ? "iva=" + iva + ", " : "") +
                 (icovalor != null ? "icovalor=" + icovalor + ", " : "") +
-                (pedidoDetalleId != null ? "pedidoDetalleId=" + pedidoDetalleId + ", " : "") +
             "}";
     }
 
