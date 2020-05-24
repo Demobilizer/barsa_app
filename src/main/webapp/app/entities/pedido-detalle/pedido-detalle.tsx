@@ -48,6 +48,9 @@ export const PedidoDetalle = (props: IPedidoDetalleProps) => {
                 <th>
                   <Translate contentKey="barsaAppApp.pedidoDetalle.pedidoCabecera">Pedido Cabecera</Translate>
                 </th>
+                <th>
+                  <Translate contentKey="barsaAppApp.pedidoDetalle.producto">Producto</Translate>
+                </th>
                 <th />
               </tr>
             </thead>
@@ -68,6 +71,9 @@ export const PedidoDetalle = (props: IPedidoDetalleProps) => {
                     ) : (
                       ''
                     )}
+                  </td>
+                  <td>
+                    {pedidoDetalle.producto ? <Link to={`producto/${pedidoDetalle.producto.id}`}>{pedidoDetalle.producto.id}</Link> : ''}
                   </td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">

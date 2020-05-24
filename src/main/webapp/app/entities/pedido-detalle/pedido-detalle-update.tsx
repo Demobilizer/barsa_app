@@ -9,6 +9,8 @@ import { IRootState } from 'app/shared/reducers';
 
 import { IPedidoCabecera } from 'app/shared/model/pedido-cabecera.model';
 import { getEntities as getPedidoCabeceras } from 'app/entities/pedido-cabecera/pedido-cabecera.reducer';
+import { IProducto } from 'app/shared/model/producto.model';
+import { getEntities as getProductos } from 'app/entities/producto/producto.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './pedido-detalle.reducer';
 import { IPedidoDetalle } from 'app/shared/model/pedido-detalle.model';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
@@ -18,9 +20,10 @@ export interface IPedidoDetalleUpdateProps extends StateProps, DispatchProps, Ro
 
 export const PedidoDetalleUpdate = (props: IPedidoDetalleUpdateProps) => {
   const [pedidoCabeceraId, setPedidoCabeceraId] = useState('0');
+  const [productoId, setProductoId] = useState('0');
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
 
-  const { pedidoDetalleEntity, pedidoCabeceras, loading, updating } = props;
+  const { pedidoDetalleEntity, pedidoCabeceras, productos, loading, updating } = props;
 
   const handleClose = () => {
     props.history.push('/pedido-detalle');
@@ -34,6 +37,7 @@ export const PedidoDetalleUpdate = (props: IPedidoDetalleUpdateProps) => {
     }
 
     props.getPedidoCabeceras();
+    props.getProductos();
   }, []);
 
   useEffect(() => {
@@ -122,6 +126,21 @@ export const PedidoDetalleUpdate = (props: IPedidoDetalleUpdateProps) => {
                   <Translate contentKey="entity.validation.required">This field is required.</Translate>
                 </AvFeedback>
               </AvGroup>
+              <AvGroup>
+                <Label for="pedido-detalle-producto">
+                  <Translate contentKey="barsaAppApp.pedidoDetalle.producto">Producto</Translate>
+                </Label>
+                <AvInput id="pedido-detalle-producto" type="select" className="form-control" name="producto.id">
+                  <option value="" key="0" />
+                  {productos
+                    ? productos.map(otherEntity => (
+                        <option value={otherEntity.id} key={otherEntity.id}>
+                          {otherEntity.id}
+                        </option>
+                      ))
+                    : null}
+                </AvInput>
+              </AvGroup>
               <Button tag={Link} id="cancel-save" to="/pedido-detalle" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
@@ -145,6 +164,7 @@ export const PedidoDetalleUpdate = (props: IPedidoDetalleUpdateProps) => {
 
 const mapStateToProps = (storeState: IRootState) => ({
   pedidoCabeceras: storeState.pedidoCabecera.entities,
+  productos: storeState.producto.entities,
   pedidoDetalleEntity: storeState.pedidoDetalle.entity,
   loading: storeState.pedidoDetalle.loading,
   updating: storeState.pedidoDetalle.updating,
@@ -153,6 +173,7 @@ const mapStateToProps = (storeState: IRootState) => ({
 
 const mapDispatchToProps = {
   getPedidoCabeceras,
+  getProductos,
   getEntity,
   updateEntity,
   createEntity,

@@ -51,7 +51,7 @@ entity PedidoDetalle {
 relationship OneToMany {
     Cliente        to PedidoCabecera{cliente},
     PedidoCabecera to PedidoDetalle{pedidoCabecera(pedidoNumero) required},
-    //Producto       to PedidoDetalle{articuloCodigo} // Producto is not having field articuloCodigo!
+    Producto       to PedidoDetalle{producto} // Producto is not having field articuloCodigo!
     
 }
 

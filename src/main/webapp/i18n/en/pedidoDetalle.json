@@ -19,7 +19,8 @@
       "posicion": "Posicion",
       "cantidad": "Cantidad",
       "total": "Total",
-      "pedidoCabecera": "Pedido Cabecera"
+      "pedidoCabecera": "Pedido Cabecera",
+      "producto": "Producto"
     }
   }
 }

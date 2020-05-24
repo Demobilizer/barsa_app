@@ -36,6 +36,10 @@ public class PedidoDetalle implements Serializable {
     @JsonIgnoreProperties("pedidoDetalles")
     private PedidoCabecera pedidoCabecera;
 
+    @ManyToOne
+    @JsonIgnoreProperties("pedidoDetalles")
+    private Producto producto;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -95,6 +99,19 @@ public class PedidoDetalle implements Serializable {
 
     public void setPedidoCabecera(PedidoCabecera pedidoCabecera) {
         this.pedidoCabecera = pedidoCabecera;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public PedidoDetalle producto(Producto producto) {
+        this.producto = producto;
+        return this;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

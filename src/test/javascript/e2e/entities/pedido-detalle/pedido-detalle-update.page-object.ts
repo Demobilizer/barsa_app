@@ -8,6 +8,7 @@ export default class PedidoDetalleUpdatePage {
   cantidadInput: ElementFinder = element(by.css('input#pedido-detalle-cantidad'));
   totalInput: ElementFinder = element(by.css('input#pedido-detalle-total'));
   pedidoCabeceraSelect: ElementFinder = element(by.css('select#pedido-detalle-pedidoCabecera'));
+  productoSelect: ElementFinder = element(by.css('select#pedido-detalle-producto'));
 
   getPageTitle() {
     return this.pageTitle;
@@ -54,6 +55,25 @@ export default class PedidoDetalleUpdatePage {
 
   async getPedidoCabeceraSelectedOption() {
     return this.pedidoCabeceraSelect.element(by.css('option:checked')).getText();
+  }
+
+  async productoSelectLastOption() {
+    await this.productoSelect
+      .all(by.tagName('option'))
+      .last()
+      .click();
+  }
+
+  async productoSelectOption(option) {
+    await this.productoSelect.sendKeys(option);
+  }
+
+  getProductoSelect() {
+    return this.productoSelect;
+  }
+
+  async getProductoSelectedOption() {
+    return this.productoSelect.element(by.css('option:checked')).getText();
   }
 
   async save() {

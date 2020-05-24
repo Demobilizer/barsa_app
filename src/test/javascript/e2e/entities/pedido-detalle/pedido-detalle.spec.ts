@@ -68,6 +68,7 @@ describe('PedidoDetalle e2e test', () => {
         await pedidoDetalleUpdatePage.setTotalInput('5');
         expect(await pedidoDetalleUpdatePage.getTotalInput()).to.eq('5');
         await pedidoDetalleUpdatePage.pedidoCabeceraSelectLastOption();
+        await pedidoDetalleUpdatePage.productoSelectLastOption();
         await waitUntilDisplayed(pedidoDetalleUpdatePage.saveButton);
         await pedidoDetalleUpdatePage.save();
         await waitUntilHidden(pedidoDetalleUpdatePage.saveButton);
